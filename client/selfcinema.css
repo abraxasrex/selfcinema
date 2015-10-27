@@ -1,0 +1,39 @@
+h1, h3, h4, h5, h6{
+ text-align:center;
+}
+.stripe{
+background-color: black;
+}
+.header{
+margin-bottom:25px;
+margin-top:25px;
+background-image:url(http://images.cdn.filmclub.org/news-and-events__daisies-632.jpg);
+color:white;
+}
+
+.feed{
+float:left;
+}
+
+body{
+background-image:url(http://i.stack.imgur.com/MtKUX.jpg);
+}
+
+.bg_fix{
+  -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+  background-size: cover;
+  }
+ .featured{
+  margin-left:15px;
+  background-color: rgba(250, 250, 250, 0.3);
+  border-style: solid thin;
+  border-color: black;
+  float: left;
+  width:70%;
+  }
+  .uh{
+  float:left;
+  }
+ 

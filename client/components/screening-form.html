@@ -1,0 +1,27 @@
+<template name= "newScreening">
+<form id="screeningForm" role="form"> 
+    <div class="form-group all-group">
+        <label>Event title: </label>
+        <input type="text" name="event_title" class="form-control" placeholder="I am so lonely watch a movie with me">
+    </div>
+    <div class="form-group">
+        <label>Film(s) you will show:</label>
+        <input type="text" name="event_film" class="form-control" placeholder="Casablanca">
+    </div>
+    <div class="form-group">
+        <label>Format(i.e. widescreen HDTV, projector, laptop):</label>
+        <input type="text" name="event_format" class="form-control" placeholder="projector">
+    </div>
+    <div class="form-group">
+        <label>Time/Date:</label>
+        <input type="text" name="event_time" class="form-control" placeholder="October 23rd, 1989">
+    </div>
+	<div class="form-group">
+        <label>Location:</label>
+        <input type="text" name="event_place" class="form-control" placeholder="blah blah street">
+    </div>
+	
+	 <button class="btn btn-default clearForm col-md-6">clear form</button>
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Create Event</button>
+</form>
+</template>
