@@ -1,5 +1,5 @@
 Template.screening.helpers({
-	 zombify: function(){
+	 blahblah: function(){
 		 return Screenings.find();
 	 }
 });
@@ -8,11 +8,11 @@ Template.screening.events({
 	
 	'click .attend': function(){
 		event.preventDefault();
-		thisEvent=this.title;
+		thisEvent=this._id;
 		thisUser=Meteor.userId();
 		
 		Screenings.update(
-		{title: thisTitle},
+		{title: thisEvent},
 			{ $push: {attendees: thisUser}}
 		);
 	}

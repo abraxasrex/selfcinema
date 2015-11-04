@@ -5,8 +5,7 @@ Template.signupForm.events({
       username: template.find("#signup-username").value,
       password: template.find("#signup-password").value,
       profile: {
-        name: template.find("#signup-name").value
-        // Other required field values can go here
+        email: template.find("#signup-email").value
       }
     }, function(error) {
       if (error) {
@@ -45,6 +44,26 @@ Template.logoutForm.events({
 Template.newScreening.events({
 	"submit #screeningForm": function(event, template){
 		event.preventDefault();
+		thisTitle= template.find("input[name=event_title]").value;
+		thisFilm= template.find("input[name=event_film]").value;
+		thisFormat= template.find("input[name=event_format]").value;
+		thistime=template.find("input[name=event_time]").value;
+		thisLocation=template.find("input[name=event_location]").value;
 		
+		var thisScreening= {
+			createdBy: this.userId,
+			title: thisTitle,
+			film: thisFilm,
+			attendees: this.userId.username,
+			time: thisTime,
+			location: thisLocation
+		};
+		
+		Screenings.insert(thisScreening);
+		
+	},
+	"click .clearForm": function(event, template){
+		event.preventDefault();
+		input.value = "";
 	}
 });
