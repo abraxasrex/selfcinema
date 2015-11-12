@@ -1,6 +1,7 @@
 Template.screening.helpers({
-	 blahblah: function(){
-		 return Screenings.find();
+	 timeDisplay: function(){
+		 var thisTime= this.time.toDateString();
+		 return thisTime;
 	 }
 });
 

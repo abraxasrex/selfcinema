@@ -47,19 +47,28 @@ Template.newScreening.events({
 		thisTitle= template.find("input[name=event_title]").value;
 		thisFilm= template.find("input[name=event_film]").value;
 		thisFormat= template.find("input[name=event_format]").value;
-		thistime=template.find("input[name=event_time]").value;
+		thisTime=new Date(template.find("input[name=event_time]").value);
 		thisLocation=template.find("input[name=event_location]").value;
+		thisDescription=template.find("input[name=event_description]").value;
 		
 		var thisScreening= {
 			createdBy: this.userId,
 			title: thisTitle,
 			film: thisFilm,
-			attendees: this.userId.username,
+			attendees: [],
 			time: thisTime,
-			location: thisLocation
+			location: thisLocation,
+			description: thisDescription
 		};
 		
 		Screenings.insert(thisScreening);
+		
+		thisUser=Meteor.userId();
+		
+		Screenings.update(
+		{title: thisEvent},
+			{ $push: {attendees: thisUser}}
+		);
 		
 	},
 	"click .clearForm": function(event, template){

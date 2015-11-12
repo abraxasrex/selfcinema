@@ -42,7 +42,7 @@
 </template>
 
 <template name= "newScreening">
-<form id="screeningForm" role="form"> 
+<form id="screeningForm"> 
     <div class="form-group all-group">
         <label>Event title: </label>
         <input type="text" name="event_title" class="form-control" placeholder="I am so lonely watch a movie with me">
@@ -57,11 +57,15 @@
     </div>
     <div class="form-group">
         <label>Time/Date:</label>
-        <input type="text" name="event_time" class="form-control" placeholder="October 23rd, 1989">
+        <input type="datetime-local" name="event_time" class="form-control">
     </div>
 	<div class="form-group">
         <label>Location:</label>
-        <input type="text" name="event_place" class="form-control" placeholder="blah blah street">
+        <input type="text" name="event_location" class="form-control" placeholder="blah blah street">
+    </div>
+	<div class="form-group">
+        <label>Description: </label>
+        <input type="text" name="event_description" class="form-control" placeholder="short description of your event">
     </div>
 	
 	 <button class="btn btn-default clearForm col-md-6">clear form</button>
