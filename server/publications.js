@@ -10,6 +10,3 @@ Meteor.publish('myScreenings',function(){
 	var currentUser=this.user().username;
 	return Screenings.find({createdBy: currentUser});
 })
-
-
-

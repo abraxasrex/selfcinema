@@ -50,7 +50,7 @@ Template.newScreening.events({
 		thisTime=new Date(template.find("input[name=event_time]").value);
 		thisLocation=template.find("input[name=event_location]").value;
 		thisDescription=template.find("input[name=event_description]").value;
-		
+
 		var thisScreening= {
 			createdBy: this.userId,
 			title: thisTitle,
@@ -60,16 +60,16 @@ Template.newScreening.events({
 			location: thisLocation,
 			description: thisDescription
 		};
-		
+
 		Screenings.insert(thisScreening);
-		
+
 		thisUser=Meteor.userId();
-		
+
 		Screenings.update(
 		{title: thisEvent},
 			{ $push: {attendees: thisUser}}
 		);
-		
+
 	},
 	"click .clearForm": function(event, template){
 		event.preventDefault();
