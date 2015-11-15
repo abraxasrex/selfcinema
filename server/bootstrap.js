@@ -1,4 +1,5 @@
 Meteor.startup(function() {
+ 
 
   if (Screenings.find().count() === 0) {
 
@@ -17,7 +18,7 @@ Meteor.startup(function() {
 		  film: ['the thing', 'videodrome'],
 		  attendees: ['smorg','clongar', 'deathdribblez'],
 		  time: new Date(2015, 11, 15, 8, 45, 0),
-		  location: '2005 NE 52nd st Seattle, WA 98105',
+		  location: '3053 Williamsburg Rd. Clarksville, TN 37043',
 		  description: "we gon get spooky. byob: bring your own body"
 	  }
 

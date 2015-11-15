@@ -41,6 +41,30 @@ Template.logoutForm.events({
   }
 });
 
+if(Meteor.isClient){
+Meteor.startup(function() {
+ GoogleMaps.load({
+  key: 'AIzaSyBK4S7VuPnSHgBGCv3DhTN5bUUNGVVWyjI',
+  libraries: 'places'  // also accepts an array if you need more than one
+ });
+});
+
+
+
+   Template.newScreening.onRendered(function () {
+
+     this.autorun(() => {
+
+       if (GoogleMaps.loaded()) {
+         $('#place1').geocomplete({
+           map: $("#map")
+         });
+       }
+     });
+
+   });
+};
+
 Template.newScreening.events({
 	"submit #screeningForm": function(event, template){
 		event.preventDefault();
@@ -75,4 +99,5 @@ Template.newScreening.events({
 		event.preventDefault();
 		input.value = "";
 	}
+
 });

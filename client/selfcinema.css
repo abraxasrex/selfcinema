@@ -17,6 +17,10 @@ float:left;
 body{
 background-image:url(http://i.stack.imgur.com/MtKUX.jpg);
 }
+#map{
+  width:200px;
+  height:200px;
+}
 
 .bg_fix{
   -webkit-background-size: cover;
@@ -25,7 +29,7 @@ background-image:url(http://i.stack.imgur.com/MtKUX.jpg);
   background-size: cover;
   }
  .featured{
-  margin-left:15px;
+  margin-left:5px;
   background-color: rgba(250, 250, 250, 0.3);
   border-style: solid thin;
   border-color: black;

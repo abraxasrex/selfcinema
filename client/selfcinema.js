@@ -1,41 +1,51 @@
 
+if (Meteor.isClient) {
+  Session.setDefault('toShow', 'login')
+  if(Meteor.userId()){
+    Session.set('toShow','create');
+  }
+  else{
+    Session.set('toShow', 'login')
+  }
 
-  Session.setDefault('counter', 0);
+ Session.setDefault('screeningID', 42);
+};
 
   Template.body.helpers({
 	 screenings: function(){
 		 return Screenings.find();
 	 },
-	 isScreening: function(){
-		 return false;
+   isLogin: function(){
+     if(!Meteor.userId()){
+       return true;
+     }
+   },
+	 mainView: function(){
+     var thisScreeningID = Session.get('screeningID');
+     if (Session.get('toShow')==='screening'){
+       return Screenings.find({_id: thisScreeningID});
+     }
 	 },
-	 isLogin: function(){
-		 if(!Meteor.userId()){
-			 return true;
-		 }
-	 },
-	 isEmpty: function(){
-		 return false;
-	 },
-	 isScheduled: function(){
-		 return false;
-	 },
-
-	 createNew: function(){
-		 if(Meteor.userId()){
-			 return true;
-		 }
-	 }
-
+   createNew: function(){
+     if(Meteor.userId()){
+       return true;
+     }
+   }
 
   });
 
- // Template.main.events({
+  Template.body.events({
+    'click .tile': function(event){
+      Session.set('toShow', 'screening');
+      Session.set('screeningID', this._id)
+    },
+    'click .create': function(event){
+      Session.set('toShow', 'create');
+    }
+  });
 
-  //});
 
-
- UI.registerHelper('indexedArray', function(context, options) {
+ UI.registerHelper("indexedArray", function(context, options) {
     if (context) {
       return context.map(function(item, index) {
         item._index = index;
