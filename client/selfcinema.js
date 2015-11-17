@@ -11,7 +11,7 @@ if (Meteor.isClient) {
  Session.setDefault('screeningID', 42);
 };
 
-  Template.body.helpers({
+Template.body.helpers({
 	 screenings: function(){
 		 return Screenings.find();
 	 },
@@ -21,10 +21,13 @@ if (Meteor.isClient) {
      }
    },
 	 mainView: function(){
-     var thisScreeningID = Session.get('screeningID');
      if (Session.get('toShow')==='screening'){
-       return Screenings.find({_id: thisScreeningID});
-     }
+       return true;
+     };
+   },
+     screeningToShow: function(){
+        var thisScreeningID = Session.get('screeningID');
+        return Screenings.find({_id: thisScreeningID})
 	 },
    createNew: function(){
      if(Meteor.userId()){
@@ -32,18 +35,19 @@ if (Meteor.isClient) {
      }
    }
 
-  });
+});
 
-  Template.body.events({
+Template.body.events({
     'click .tile': function(event){
       Session.set('toShow', 'screening');
       Session.set('screeningID', this._id)
     },
     'click .create': function(event){
-      Session.set('toShow', 'create');
+      if(Meteor.userId()){
+        Session.set('toShow', 'create');
+      }
     }
-  });
-
+});
 
  UI.registerHelper("indexedArray", function(context, options) {
     if (context) {

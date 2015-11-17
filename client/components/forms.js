@@ -9,7 +9,7 @@ Template.signupForm.events({
       }
     }, function(error) {
       if (error) {
-        // Display the user creation error to the user however you want
+        console.log(" signup error");
       }
     });
   }
@@ -23,7 +23,7 @@ Template.loginForm.events({
       template.find("#login-password").value,
       function(error) {
         if (error) {
-          // Display the login error to the user however you want
+          console.log("login error");
         }
       }
     );
@@ -35,7 +35,7 @@ Template.logoutForm.events({
     event.preventDefault();
     Meteor.logout(function(error) {
       if (error) {
-        // Display the logout error to the user however you want
+        console.log("logout error")
       }
     });
   }

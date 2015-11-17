@@ -20,3 +20,16 @@ Template.screening.events({
 
 
 });
+
+Template.screeningMap.onRendered(function () {
+
+	this.autorun(() => {
+     var thisLocation= "Seattle, WA";
+		if (GoogleMaps.loaded()) {
+			$(thisLocation).geocomplete({
+				map: $("#map2")
+			});
+		}
+	});
+
+});

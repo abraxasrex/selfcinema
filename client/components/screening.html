@@ -17,3 +17,21 @@
   </div>
 
 </template>
+
+<template name="screeningMap">
+  <div class="col-md-12">
+    <h3>{{ title }}</h3>
+
+     <h4>showing: {{ film }} </h4>
+
+     <h4>{{ timeDisplay }}</h4>
+     <h4>{{ location }}</h4>
+
+       <div id="map2"></div>
+
+     <h5> {{ description }} </h5>
+    <h5>attending: {{ attendees }}</h5>
+     <button class="btn btn-md attend">Attend</button>
+ </div>
+  
+</template>

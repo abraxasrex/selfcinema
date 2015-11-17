@@ -6,18 +6,21 @@
 
 <body>
 <div class="container container-fluid">
+
      {{ #unless isLogin}}
-	   {{>logoutForm}}
-     <button class="btn create">create new event</button>
+
+	    <div class="col-md-2">  {{>logoutForm}} </div>
+    <div class="col-md-2">  <button class="btn create">create new event</button> </div>
+
 	 {{ /unless }}
 
     <div class="col-md-12 header">
       <h1>SelfCinema</h1>
       <h4 class="stripe">broke living room film fanatics unite.</h4>
-	  <h6>today's image: "Daisies" by Věra Chytilová </h6>
+
     </div>
 
-   <div class=" feed">
+   <div class=" feed col-md-3">
      <h4>screenings now near you:</h4>
      {{#each screenings}}
      {{> screening}}
@@ -25,16 +28,16 @@
    </div>
 
 
-   <div class="featured">
-	 {{ mainView }}
+   <div class="featured col-md-8">
+	 {{ #if mainView }}
+     {{#each screeningToShow}}
+       {{> screeningMap}}
+     {{/each}}
+   {{ /if }}
 
 	 {{ #if isLogin }}
-	   <div class="uh">
-	  {{> signupForm }}
-	  </div>
-	  <div class="uh">
-	{{> loginForm }}
-	</div>
+	   {{> signupForm }}
+	   {{> loginForm }}
 	 {{ /if }}
 
    {{ #if createNew }}
