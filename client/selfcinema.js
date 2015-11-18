@@ -30,7 +30,7 @@ Template.body.helpers({
         return Screenings.find({_id: thisScreeningID})
 	 },
    createNew: function(){
-     if(Meteor.userId()){
+     if(Meteor.userId() && Session.get('toShow')==="create"){
        return true;
      }
    }

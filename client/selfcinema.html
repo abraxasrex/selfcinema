@@ -7,18 +7,17 @@
 <body>
 <div class="container container-fluid">
 
-     {{ #unless isLogin}}
-
-	    <div class="col-md-2">  {{>logoutForm}} </div>
-    <div class="col-md-2">  <button class="btn create">create new event</button> </div>
-
-	 {{ /unless }}
-
     <div class="col-md-12 header">
       <h1>SelfCinema</h1>
       <h4 class="stripe">broke living room film fanatics unite.</h4>
-
     </div>
+    <ul class="nav nav-pills">
+      {{ #unless isLogin}}
+      <li role="presentation"><button class="create">create new event</button></li>
+ 	    <li role="presentation" class="logout">  {{>logoutForm}} </li>
+ 	    {{ /unless }}
+    </ul>
+
 
    <div class=" feed col-md-3">
      <h4>screenings now near you:</h4>
@@ -29,16 +28,16 @@
 
 
    <div class="featured col-md-8">
+     {{ #if isLogin }}
+  	   {{> signupForm }}
+  	   {{> loginForm }}
+  	 {{ /if }}
+
 	 {{ #if mainView }}
      {{#each screeningToShow}}
        {{> screeningMap}}
      {{/each}}
    {{ /if }}
-
-	 {{ #if isLogin }}
-	   {{> signupForm }}
-	   {{> loginForm }}
-	 {{ /if }}
 
    {{ #if createNew }}
      {{> newScreening }}

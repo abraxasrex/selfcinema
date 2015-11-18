@@ -11,7 +11,7 @@ background-image:url(http://images.cdn.filmclub.org/news-and-events__daisies-632
 color:white;
 }
 .feed{
-
+background-color: rgba(230,230,230,0.3);
 }
 
 body{
@@ -20,6 +20,7 @@ background-image:url(http://i.stack.imgur.com/MtKUX.jpg);
 #map, #map2{
   width:300px;
   height:250px;
+  text-align:center;
 }
 
 .bg_fix{
@@ -39,4 +40,7 @@ background-image:url(http://i.stack.imgur.com/MtKUX.jpg);
 }
 .btn-primary{
   text-align: center;
+}
+.logout{
+  float:right;
 }

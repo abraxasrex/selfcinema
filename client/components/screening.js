@@ -9,27 +9,39 @@ Template.screening.events({
 
 	'click .attend': function(){
 		event.preventDefault();
-		thisEvent=this._id;
-		thisUser=Meteor.userId();
+		thisEvent= this._id;
+		thisUser= Meteor.user().username;
+    if(Screenings.find({_id: thisEvent, attendees:thisUser}) === false){
+			Screenings.update(
+			{_id: thisEvent},
+				{ $push: {attendees: thisUser}}
+			);
+		}
 
-		Screenings.update(
-		{title: thisEvent},
-			{ $push: {attendees: thisUser}}
-		);
 	}
 
-
 });
 
-Template.screeningMap.onRendered(function () {
-
-	this.autorun(() => {
-     var thisLocation= "Seattle, WA";
-		if (GoogleMaps.loaded()) {
-			$(thisLocation).geocomplete({
-				map: $("#map2")
-			});
-		}
-	});
-
+if(Meteor.isClient){
+Meteor.startup(function() {
+ GoogleMaps.load({
+  key:  Meteor.settings.public.GOOGLE_SECRET,
+  libraries: 'places'
+ });
 });
+};
+
+   Template.screeningMap.onRendered(function () {
+		 thisLocation= this.location;
+      $("#place2").value= thisLocation;
+
+     this.autorun(() => {
+       if (GoogleMaps.loaded()) {
+        $("place2").geocomplete({
+           map: $("#map2"),
+					 location: thisLocation
+         });
+       }
+     });
+
+   });

@@ -1,20 +1,15 @@
 <template name="screening">
 
   <div class="tile" data-id="{{ _id }}">
-
      <h3>{{ title }}</h3>
-
-	 <h4>showing: {{ film }} </h4>
-
-	 <h4>{{ timeDisplay }}</h4>
-	 <h4>{{ location }}</h4>
-
-
-
-	 <h5> {{ description }} </h5>
-	 <h5>attending: {{ attendees }}</h5>
-	 <button class="btn btn-md attend">Attend</button>
+	   <h4>showing: {{ film }} </h4>
+	   <h4>{{ timeDisplay }}</h4>
+	   <h4>{{ location }}</h4>
+	   <h5> {{ description }} </h5>
+	   <h5>attending: {{ attendees }}</h5>
   </div>
+
+   <button class="btn btn-md attend">Attend</button>
 
 </template>
 
@@ -25,13 +20,14 @@
      <h4>showing: {{ film }} </h4>
 
      <h4>{{ timeDisplay }}</h4>
-     <h4>{{ location }}</h4>
 
-       <div id="map2"></div>
+       <input id="place2">
+       <div id="map2">
+       </div>
 
      <h5> {{ description }} </h5>
     <h5>attending: {{ attendees }}</h5>
      <button class="btn btn-md attend">Attend</button>
  </div>
-  
+
 </template>

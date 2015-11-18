@@ -44,17 +44,14 @@ Template.logoutForm.events({
 if(Meteor.isClient){
 Meteor.startup(function() {
  GoogleMaps.load({
-  key: 'AIzaSyBK4S7VuPnSHgBGCv3DhTN5bUUNGVVWyjI',
-  libraries: 'places'  // also accepts an array if you need more than one
- });
+  key: Meteor.settings.public.GOOGLE_SECRET,
+  libraries: 'places'
 });
+});
+};
 
-
-
-   Template.newScreening.onRendered(function () {
-
+  Template.newScreening.onRendered(function () {
      this.autorun(() => {
-
        if (GoogleMaps.loaded()) {
          $('#place1').geocomplete({
            map: $("#map")
@@ -63,7 +60,7 @@ Meteor.startup(function() {
      });
 
    });
-};
+
 
 Template.newScreening.events({
 	"submit #screeningForm": function(event, template){
@@ -84,13 +81,12 @@ Template.newScreening.events({
 			location: thisLocation,
 			description: thisDescription
 		};
-
 		Screenings.insert(thisScreening);
 
-		thisUser=Meteor.userId();
-
+		thisUser=Meteor.user().username;
+    currentScreeningID= this._id;
 		Screenings.update(
-		{title: thisEvent},
+		{title: currentScreeningID},
 			{ $push: {attendees: thisUser}}
 		);
 
