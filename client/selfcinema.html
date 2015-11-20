@@ -1,7 +1,5 @@
 <head>
   <title>selfcinema</title>
-
-
 </head>
 
 <body>
@@ -18,16 +16,15 @@
  	    {{ /unless }}
     </ul>
 
-
    <div class=" feed col-md-3">
+     
      <h4>screenings now near you:</h4>
      {{#each screenings}}
      {{> screening}}
      {{/each}}
    </div>
 
-
-   <div class="featured col-md-8">
+    <div class="featured col-md-8">
      {{ #if isLogin }}
   	   {{> signupForm }}
   	   {{> loginForm }}
@@ -42,8 +39,7 @@
    {{ #if createNew }}
      {{> newScreening }}
    {{ /if }}
+  </div>
+
  </div>
-
-
-</div>
 </body>

@@ -11,13 +11,10 @@ Template.screening.events({
 		event.preventDefault();
 		thisEvent= this._id;
 		thisUser= Meteor.user().username;
-    if(Screenings.find({_id: thisEvent, attendees:thisUser}) === false){
 			Screenings.update(
 			{_id: thisEvent},
-				{ $push: {attendees: thisUser}}
+				{ $push: {attendees: "Squid"}}
 			);
-		}
-
 	}
 
 });
@@ -33,15 +30,15 @@ Meteor.startup(function() {
 
    Template.screeningMap.onRendered(function () {
 		 thisLocation= this.location;
-      $("#place2").value= thisLocation;
+     var options= {
+			 map: "#map2",
+			 location: "NYC"
+		 };
 
      this.autorun(() => {
        if (GoogleMaps.loaded()) {
-        $("place2").geocomplete({
-           map: $("#map2"),
-					 location: thisLocation
-         });
+        $("#place2").geocomplete(options);
        }
      });
-
+          $("#place2").trigger("geocode");
    });

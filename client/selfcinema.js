@@ -13,7 +13,8 @@ if (Meteor.isClient) {
 
 Template.body.helpers({
 	 screenings: function(){
-		 return Screenings.find();
+      var now= new Date();
+     return Screenings.find({time: { $gt: now}}, {sort: {time: 1} });
 	 },
    isLogin: function(){
      if(!Meteor.userId()){
@@ -34,7 +35,6 @@ Template.body.helpers({
        return true;
      }
    }
-
 });
 
 Template.body.events({

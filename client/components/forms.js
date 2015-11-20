@@ -54,11 +54,13 @@ Meteor.startup(function() {
      this.autorun(() => {
        if (GoogleMaps.loaded()) {
          $('#place1').geocomplete({
-           map: $("#map")
+           map: $("#map"),
+           location: $("place1").value
          });
        }
      });
 
+          $("#place1").trigger("geocode");
    });
 
 
@@ -86,7 +88,7 @@ Template.newScreening.events({
 		thisUser=Meteor.user().username;
     currentScreeningID= this._id;
 		Screenings.update(
-		{title: currentScreeningID},
+		{_id: currentScreeningID},
 			{ $push: {attendees: thisUser}}
 		);
 
