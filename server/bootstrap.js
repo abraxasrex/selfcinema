@@ -40,9 +40,7 @@ Meteor.startup(function() {
       description: "you should see this unless you're looking for past events"
     }
 
-
     ];
-
 
     _.each(sampleScreenings, function(screening) {
       Screenings.insert(screening);
@@ -50,3 +48,15 @@ Meteor.startup(function() {
   }
 
 });
+
+if(Meteor.isServer){
+
+Meteor.methods({
+ distance: function(){
+    console.log("i'm a pretty pony")
+
+
+  }
+});
+
+};

@@ -6,22 +6,22 @@
 	   <h4>{{ timeDisplay }}</h4>
 	   <h4>{{ location }}</h4>
 	   <h5> {{ description }} </h5>
-	   <h5>attending: {{ attendees }}</h5>
-  </div>
-
+     <div class="overflow">
+	     <h5>attending: {{ attendees }}</h5>
+     </div>
+ </div>
+<br>
    <button class="btn btn-md attend">Attend</button>
-
+   <br>
 </template>
 
 <template name="screeningMap">
   <div class="col-md-12">
     <h3>{{ title }}</h3>
-
      <h4>showing: {{ film }} </h4>
-
      <h4>{{ timeDisplay }}</h4>
 
-       <input id="place2">
+       <input id="place2" value="{{ location }}">
        <div id="map2">
        </div>
 

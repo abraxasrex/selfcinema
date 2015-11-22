@@ -7,12 +7,9 @@ Screenings.allow({
   },
 
   update: function (userId, docs, fields, modifier) {
-//	if(docs.createdBy === userId){
-		 return true;
-//	}
-//	else if(fields.attendees && modifier["$push"]){
-	//		return userId;
-	//	}
+if(userId && modifier["$push"]){
+			return true;
+		}
   },
 
   remove: function (userId, doc) {

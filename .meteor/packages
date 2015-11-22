@@ -27,3 +27,4 @@ mdg:geolocation
 jeremy:geocomplete
 twbs:bootstrap
 aldeed:geocoder
+percolate:google-api

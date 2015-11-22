@@ -55,7 +55,7 @@ Meteor.startup(function() {
        if (GoogleMaps.loaded()) {
          $('#place1').geocomplete({
            map: $("#map"),
-           location: $("place1").value
+           location: $("#place1")
          });
        }
      });

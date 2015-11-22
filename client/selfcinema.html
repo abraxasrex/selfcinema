@@ -1,5 +1,6 @@
 <head>
   <title>selfcinema</title>
+  <link href='https://fonts.googleapis.com/css?family=NTR|Yantramanav|Kadwa' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -9,6 +10,7 @@
       <h1>SelfCinema</h1>
       <h4 class="stripe">broke living room film fanatics unite.</h4>
     </div>
+
     <ul class="nav nav-pills">
       {{ #unless isLogin}}
       <li role="presentation"><button class="create">create new event</button></li>
@@ -16,8 +18,21 @@
  	    {{ /unless }}
     </ul>
 
+    <div class="dropdown">
+      <button class=" btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Dropdown
+             <span class="caret"></span>
+      </button>
+    <ul class="dropdown-menu">
+           <li class="dropdown-header feed_mine"><button>My events</button></li>
+           <li class="dropdown-header feed_upcoming"><button>I said I'd watch</button></li>
+           <li class="dropdown-header feed_past"><button>past events</button></li>
+           <li class="dropdown-header feed_10"><button>within 10 miles</button></li>
+           <li class="dropdown-header feed_25"><button>within 25 miles</button></li>
+        </ul>
+    </div>
    <div class=" feed col-md-3">
-     
+
      <h4>screenings now near you:</h4>
      {{#each screenings}}
      {{> screening}}

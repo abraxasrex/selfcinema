@@ -9,12 +9,14 @@ Template.screening.events({
 
 	'click .attend': function(){
 		event.preventDefault();
-		thisEvent= this._id;
-		thisUser= Meteor.user().username;
+		var thisEvent= this._id;
+		var thisUser= Meteor.user().username;
+		if(!Screenings.find({attendees: {$in: Meteor.user().username}})){
 			Screenings.update(
 			{_id: thisEvent},
-				{ $push: {attendees: "Squid"}}
+				{ $push: {attendees: thisUser}}
 			);
+	  }
 	}
 
 });
@@ -32,7 +34,7 @@ Meteor.startup(function() {
 		 thisLocation= this.location;
      var options= {
 			 map: "#map2",
-			 location: "NYC"
+			 location: thisLocation
 		 };
 
      this.autorun(() => {
@@ -40,5 +42,8 @@ Meteor.startup(function() {
         $("#place2").geocomplete(options);
        }
      });
-          $("#place2").trigger("geocode");
+
+					$("#place2").html(thisLocation);
+					  $("#place2").trigger("geocode");
+
    });
