@@ -29,7 +29,7 @@
        <br>
     <div class="col-md-12">
       <h5> {{ description }} </h5>
-      <h5>attending: {{ attendance }}</h5>
+      <h5>attending: {{ #each attendees }} {{ this}} {{/each}}</h5>
       <!-- <h5> distance from you: {{ distance }} </h5>  -->
     </div>
     <div class="col-md-12">
