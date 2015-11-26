@@ -2,28 +2,32 @@
 border-style: solid;
 border-width:thin;
 border-color:black;
-margin-bottom:5px;
 width: 100%;
-
-overflow: hidden;
-  -ms-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.overflow{
-    display: block;
-    word-wrap: normal;
+  word-wrap: normal;
+  margin-top:5px;
 }
 .map-container {
   width: 100%;
   max-width: 100%;
   height: 250px;
 }
-.attend{
+.attend, .edit, .delete, .primary{
   float: right;
-  margin-bottom: 5px;
+}
+.holder{
+width:100%;
+margin-left:0px;
+margin-right:0px;
+margin-bottom:5px;
+padding:0px;
 }
 #place2{
-
+ width:100%;
+}
+.screenmap{
+  overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

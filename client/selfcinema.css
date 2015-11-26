@@ -1,8 +1,14 @@
 h1, h3, h4, h5, h6{
  text-align:center;
 }
+#signup-form, #login-form{
+  text-align:center;
+}
 .stripe{
 background-color: black;
+}
+.buffer{
+  margin-bottom: 10px;
 }
 .header{
 margin-bottom:25px;
@@ -22,9 +28,12 @@ body{
 background-image:url(http://i.stack.imgur.com/MtKUX.jpg);
 }
 #map, #map2{
-  width:300px;
-  height:250px;
   text-align:center;
+  height:250px;
+  margin-bottom: 5px;
+}
+.nav li{
+  display:inline;
 }
 .bg_fix{
   -webkit-background-size: cover;
@@ -33,16 +42,13 @@ background-image:url(http://i.stack.imgur.com/MtKUX.jpg);
   background-size: cover;
   }
  .featured{
-  margin-left: 5px;
+
   background-color: rgba(250, 250, 250, 0.3);
   border-style: solid thin;
   border-color: black;
   }
-.btn-danger{
+.btn-danger, .btn-primary, .btn-success{
   float: right;
-}
-.btn-primary{
-  text-align: center;
 }
 .logout{
   float:right;

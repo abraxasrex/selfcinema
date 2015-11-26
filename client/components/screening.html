@@ -1,33 +1,44 @@
 <template name="screening">
-
-  <div class="tile" data-id="{{ _id }}">
+  <div class="col-md-12 holder">
+   <div class="tile" data-id="{{ _id }}">
      <h3>{{ title }}</h3>
 	   <h4>showing: {{ film }} </h4>
 	   <h4>{{ timeDisplay }}</h4>
 	   <h4>{{ location }}</h4>
 	   <h5> {{ description }} </h5>
-     <div class="overflow">
-	     <h5>attending: {{ attendees }}</h5>
-     </div>
- </div>
-<br>
-   <button class="btn btn-md attend">Attend</button>
-   <br>
+	   <h5>attending: {{ #each attendees }} {{ this}} {{/each}}</h5>
+    </div>
+     <br>
+      <button class="btn btn-md attend">Attend</button>
+</div>
 </template>
 
 <template name="screeningMap">
-  <div class="col-md-12">
+  <div class="col-md-12 screenmap">
     <h3>{{ title }}</h3>
      <h4>showing: {{ film }} </h4>
      <h4>{{ timeDisplay }}</h4>
-
-       <input id="place2" value="{{ location }}">
-       <div id="map2">
-       </div>
-
-     <h5> {{ description }} </h5>
-    <h5>attending: {{ attendees }}</h5>
-     <button class="btn btn-md attend">Attend</button>
+     <h4>{{ location }}</h4>
+       <br>
+       <div class="col-md-offset-3 col-md-6">
+        <input id="place2" value="{{ location }}">
+        <br>
+         <div id="map2" class="col-md-12">
+         </div>
+     </div>
+       <br>
+    <div class="col-md-12">
+      <h5> {{ description }} </h5>
+      <h5>attending: {{ attendance }}</h5>
+      <!-- <h5> distance from you: {{ distance }} </h5>  -->
+    </div>
+    <div class="col-md-12">
+       <button class="btn btn-md attend btn-action">Attend</button>
+       {{ #if owner}}
+        <button class=" btn btn-md edit btn-warning">edit</button>
+        <button class="btn btn-md btn-danger delete">delete</button>
+       {{ /if}}
+    </div>
  </div>
 
 </template>

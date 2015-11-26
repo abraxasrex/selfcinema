@@ -2,21 +2,19 @@
            <div class="col-md-6">
           <form id="signup-form">
           <h2>Sign Up</h2>
-
           <label for="signup-username">Username</label>
           <input type="text" id="signup-username" placeholder="Username" />
            <br>
          <label for="signup-password">Password</label>
         <input type="password" id="signup-password" placeholder="Password" />
           <br>
-         <label for="signup-name">Email</label>
+         <label for="signup-name"> &nbsp; &nbsp; &nbsp; &nbsp; Email</label>
          <input type="email" id="signup-email" placeholder="something.email" />
            <br>
-           <button type="submit">Sign Up</button>
+           <button type="submit" class="btn btn-primary">Sign Up</button>
           </form>
 	      </div>
 </template>
-
 
 
 <template name="loginForm">
@@ -30,51 +28,85 @@
     <label for="login-password">Password</label>
     <input type="password" id="login-password" placeholder="Password" />
     <br>
-    <button type="submit">Log In</button>
+    <button type="submit" class="btn btn-primary">Log In</button>
     </form>
 	</div>
 </template>
 
 
 <template name="logoutForm">
-    <div>
-  <form id="logout-form">
-    <button type="submit">Log Out</button>
+  <form id="logout-form" style="float:right;">
+    <button type="submit" class="btn btn-default">Log Out</button>
   </form>
-   </div>
 </template>
-
 
 
 <template name= "newScreening">
 <form id="screeningForm">
-  <button class="btn btn-danger clearForm">Clear form</button>
-    <div class="form-group all-group">
+   <button class="btn btn-danger clearForm">Clear form</button>
+    <div class="form-group all-group col-md-6 col-md-offset-3">
         <label>Event title: </label>
         <input type="text" name="event_title" class="form-control" placeholder="I am so lonely watch a movie with me">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6 col-md-offset-3">
         <label>Film(s) you will show:</label>
         <input type="text" name="event_film" class="form-control" placeholder="Casablanca">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6 col-md-offset-3">
         <label>Format(i.e. widescreen HDTV, projector, laptop):</label>
         <input type="text" name="event_format" class="form-control" placeholder="projector">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6 col-md-offset-3">
         <label>Time/Date:</label>
         <input type="datetime-local" name="event_time" class="form-control">
     </div>
-	<div class="form-group">
+	<div class="form-group col-md-6 col-md-offset-3">
       <input id="place1" type="text" name="event_location" class="form-control" value="1000 Pine St. Seattle, WA">
   </div>
-
-  <div id="map"></div>
-
-	<div class="form-group">
-        <label>Description: </label>
-        <input type="text" name="event_description" class="form-control" placeholder="short description of your event">
+  <br>
+  <div id="map" class="col-md-offset-3 col-md-6"></div>
+  <br>
+	<div class="form-group col-md-10 col-md-offset-1">
+        <label>Description:</label>
+        <textarea name="event_description" class="form-control" placeholder="short description of your event" row="6"></textarea>
    </div>
+   <div class="col-md-12" style="text-align:center;">
      <button type="submit" class="btn btn-primary">Submit</button>
+   </div>
+
 </form>
+</template>
+
+
+<template name= "editScreening">
+  <form id="editForm">
+    <button class="btn btn-danger clearForm">Clear form</button>
+      <div class="form-group all-group">
+          <label>Event title: </label>
+          <input type="text" name="event_title" class="form-control" value="{{ title }}">
+      </div>
+      <div class="form-group">
+          <label>Film(s) you will show:</label>
+          <input type="text" name="event_film" class="form-control" value="{{ film }}">
+      </div>
+      <div class="form-group">
+          <label>Format(i.e. widescreen HDTV, projector, laptop):</label>
+          <input type="text" name="event_format" class="form-control" value="{{ format }}">
+      </div>
+      <div class="form-group">
+          <label>Time/Date:</label>
+          <input type="datetime-local" name="event_time" class="form-control" value="{{ time }}">
+      </div>
+   <div class="form-group">
+        <input id="place1" type="text" name="event_location" class="form-control" value="{{ location }}">
+    </div>
+    <br>
+    <div id="map" class="col-md-offset-3 col-md-6"></div>
+    <br>
+   <div class="form-group">
+          <label>Description: </label>
+          <input type="text" name="event_description" class="form-control" value="{{description}}">
+     </div>
+       <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </template>

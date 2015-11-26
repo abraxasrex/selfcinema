@@ -11,39 +11,50 @@
       <h4 class="stripe">broke living room film fanatics unite.</h4>
     </div>
 
-    <ul class="nav nav-pills">
-      {{ #unless isLogin}}
-      <li role="presentation"><button class="create">create new event</button></li>
- 	    <li role="presentation" class="logout">  {{>logoutForm}} </li>
- 	    {{ /unless }}
-    </ul>
+  <div class="col-md-12 row buffer">
 
-    <div class="dropdown">
       <button class=" btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         Dropdown
-             <span class="caret"></span>
+         <span class="caret"></span>
       </button>
     <ul class="dropdown-menu">
+           <li class="dropdown-header feed_normal"><button>All Events</button></li>
            <li class="dropdown-header feed_mine"><button>My events</button></li>
            <li class="dropdown-header feed_upcoming"><button>I said I'd watch</button></li>
-           <li class="dropdown-header feed_past"><button>past events</button></li>
-           <li class="dropdown-header feed_10"><button>within 10 miles</button></li>
-           <li class="dropdown-header feed_25"><button>within 25 miles</button></li>
+         <!--   <li class="dropdown-header feed_past"><button>past events</button></li> -->
+           <!--<li class="dropdown-header feed_10"><button>within 10 miles</button></li>
+           <li class="dropdown-header feed_25"><button>within 25 miles</button></li> -->
         </ul>
-    </div>
+
+
+         {{ #unless isLogin}}
+           {{>logoutForm}}
+            <button class="create btn btn-default" style="float:right;">create new event</button>
+ 	     {{ /unless }}
+     </div>
+
+
+
+
    <div class=" feed col-md-3">
 
      <h4>screenings now near you:</h4>
      {{#each screenings}}
-     {{> screening}}
+       {{> screening}}
      {{/each}}
    </div>
-
+    <div class="col-md-1"></div>
     <div class="featured col-md-8">
      {{ #if isLogin }}
   	   {{> signupForm }}
   	   {{> loginForm }}
   	 {{ /if }}
+
+    {{ #if toEdit}}
+       {{ #each screeningToShow}}
+         {{> editScreening}}
+        {{ /each }}
+    {{ /if }}
 
 	 {{ #if mainView }}
      {{#each screeningToShow}}
